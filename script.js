@@ -89,28 +89,28 @@ const productos = [
         nombre: "Funda iPhone 15",
         categoria: "fundas",
         descripcion: "Funda de silicona suave con interior de microfibra",
-        imagen: "img/productos/funda_iphone_15.jpg"
+        imagen: "img/productos/Funda_Silicona_iPhone.jpg"
     },
     {
         id: 14,
         nombre: "Funda iPhone 16",
         categoria: "fundas",
         descripcion: "Funda de silicona suave con interior de microfibra",
-        imagen: "img/productos/funda_iphone_16.jpg"
+        imagen: "img/productos/funda_iphone2.jpg"
     },
     {
         id: 15,
-        nombre: "Funda iPhone 17",
+        nombre: "Funda iPhone 16",
         categoria: "fundas",
         descripcion: "Funda de silicona suave con interior de microfibra",
-        imagen: "img/productos/funda_iphone_17.jpg"
+        imagen: "img/productos/funda_iphone.jpg"
     },
     {
         id: 16,
         nombre: "Airpod serie 4",
         categoria: "audifonos",
         descripcion: "Audífonos inalámbricos con cancelación de ruido",
-        imagen: "img/productos/airpod_serie_4.jpg"
+        imagen: "img/productos/airpods_serie4.jpg"
     },
     {
         id: 17,
@@ -124,14 +124,14 @@ const productos = [
         nombre: "Audifonos Inalambricos",
         categoria: "audifonos",
         descripcion: "Audífonos inalámbricos con cancelación de ruido",
-        imagen: "img/productos/audifonos_inalambricos.jpg"
+        imagen: "img/productos/Audifonos_Bluetooth.jpg"
     },
     {
         id: 19,
         nombre: "Audifonos Inalambricos 2",
         categoria: "audifonos",
         descripcion: "Audífonos inalámbricos con cancelación de ruido",
-        imagen: "img/productos/audifonos_inalambricos_2.jpg"
+        imagen: "img/productos/audifonos_i12.jpg"
     },
     {
         id: 20,
@@ -145,7 +145,7 @@ const productos = [
         nombre: "bateria Iphone",
         categoria: "cargadores",
         descripcion: "Batería externa para iPhone con carga rápida",   
-        imagen: "img/productos/bateria_iphone.jpg"
+        imagen: "img/productos/batria_iphon.jpg"
     }
 
 ];
