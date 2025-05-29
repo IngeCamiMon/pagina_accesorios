@@ -55,7 +55,99 @@ const productos = [
         categoria: "protectores",
         descripcion: "Protector de cristal para lentes de cámara",
         imagen: "img/productos/Protector_Camara_iPhone.jpeg"
+    },
+        {
+        id: 9,
+        nombre: "Adapatdor 35w",
+        categoria: "cargadores",
+        descripcion: "Adaptador 35w carga rapida",
+        imagen: "img/productos/adapatador_35w.jpg"
+    },
+        {
+        id: 10,
+        nombre: "Adapatador Samsung",
+        categoria: "cargadores",
+        descripcion: "Adapatador para telefono Samsung",
+        imagen: "img/productos/adapatador_samsung.jpg"
+    },
+        {
+        id: 11,
+        nombre: "Airpod Pro",
+        categoria: "Audifono",
+        descripcion: "Estuche Airpod Pro",
+        imagen: "img/productos/airpod_pro.jpg"
+    },
+    {
+        id: 12,
+        nombre: "Funda iPhone 14",
+        categoria: "fundas",
+        descripcion: "Funda de silicona suave con interior de microfibra",
+        imagen: "img/productos/funda_iphone_14.jpg"
+    },
+    {
+        id: 13,
+        nombre: "Funda iPhone 15",
+        categoria: "fundas",
+        descripcion: "Funda de silicona suave con interior de microfibra",
+        imagen: "img/productos/funda_iphone_15.jpg"
+    },
+    {
+        id: 14,
+        nombre: "Funda iPhone 16",
+        categoria: "fundas",
+        descripcion: "Funda de silicona suave con interior de microfibra",
+        imagen: "img/productos/funda_iphone_16.jpg"
+    },
+    {
+        id: 15,
+        nombre: "Funda iPhone 17",
+        categoria: "fundas",
+        descripcion: "Funda de silicona suave con interior de microfibra",
+        imagen: "img/productos/funda_iphone_17.jpg"
+    },
+    {
+        id: 16,
+        nombre: "Airpod serie 4",
+        categoria: "audifonos",
+        descripcion: "Audífonos inalámbricos con cancelación de ruido",
+        imagen: "img/productos/airpod_serie_4.jpg"
+    },
+    {
+        id: 17,
+        nombre: "Airpods",
+        categoria: "audifonos",
+        descripcion: "Audífonos inalámbricos con cancelación de ruido",
+        imagen: "img/productos/airpods.jpg"
+    },
+    {
+        id: 18,
+        nombre: "Audifonos Inalambricos",
+        categoria: "audifonos",
+        descripcion: "Audífonos inalámbricos con cancelación de ruido",
+        imagen: "img/productos/audifonos_inalambricos.jpg"
+    },
+    {
+        id: 19,
+        nombre: "Audifonos Inalambricos 2",
+        categoria: "audifonos",
+        descripcion: "Audífonos inalámbricos con cancelación de ruido",
+        imagen: "img/productos/audifonos_inalambricos_2.jpg"
+    },
+    {
+        id: 20,
+        nombre: "Armadura",
+        categoria: "fundas",
+        descripcion: "Funda resistente con protección en esquinas",
+        imagen: "img/productos/armadura.jpg"
+    },
+    {
+        id: 21,
+        nombre: "bateria Iphone",
+        categoria: "cargadores",
+        descripcion: "Batería externa para iPhone con carga rápida",   
+        imagen: "img/productos/bateria_iphone.jpg"
     }
+
 ];
 
 // Cargar productos en la página
