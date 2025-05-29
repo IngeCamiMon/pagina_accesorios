@@ -35,7 +35,7 @@ const productos = [
     {
         id: 5,
         nombre: "Soporte para Auto",
-        precio: 12.99,
+        //precio: 12.99,
         categoria: "soportes",
         descripcion: "Soporte magnético para tablero o rejilla de ventilación",
         imagen: "img/productos/Soporte_para_Auto.jpeg"
