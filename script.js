@@ -5,7 +5,7 @@ const productos = [
         nombre: "Funda Silicona iPhone 14",
         categoria: "fundas",
         descripcion: "Funda de silicona suave con interior de microfibra",
-        imagen: "img/productos/Funda_Silicona_iPhone_14.jpeg"
+        imagen: "img/productos/Funda_Silicona_iPhone_14jpeg"
     },
     {
         id: 2,
@@ -75,7 +75,7 @@ const productos = [
         nombre: "Airpod Pro",
         categoria: "Audifono",
         descripcion: "Estuche Airpod Pro",
-        imagen: "img/productos/airpod_pro.jpg"
+        imagen: "img/productos/airpods_pro.jpg"
     },
     {
         id: 12,
@@ -124,7 +124,7 @@ const productos = [
         nombre: "Audifonos Inalambricos",
         categoria: "audifonos",
         descripcion: "Audífonos inalámbricos con cancelación de ruido",
-        imagen: "img/productos/Audifonos_Bluetooth.jpg"
+        imagen: "img/productos/Audífonos_Bluetooth.jpg"
     },
     {
         id: 19,
@@ -145,7 +145,7 @@ const productos = [
         nombre: "bateria Iphone",
         categoria: "cargadores",
         descripcion: "Batería externa para iPhone con carga rápida",   
-        imagen: "img/productos/batria_iphon.jpg"
+        imagen: "img/productos/batria_iphon_portatil.jpg"
     }
 
 ];
