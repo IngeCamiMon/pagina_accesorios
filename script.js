@@ -3,7 +3,6 @@ const productos = [
     {
         id: 1,
         nombre: "Funda Silicona iPhone 14",
-        precio: 15.99,
         categoria: "fundas",
         descripcion: "Funda de silicona suave con interior de microfibra",
         imagen: "img/productos/Funda_Silicona_iPhone_14.jpeg"
@@ -11,7 +10,6 @@ const productos = [
     {
         id: 2,
         nombre: "Protector Pantalla Samsung S23",
-        precio: 9.99,
         categoria: "protectores",
         descripcion: "Cristal templado 9H antirayones y antihuellas",
         imagen: "img/productos/Protector_Pantalla_Samsung_S23.jpeg"
@@ -19,7 +17,6 @@ const productos = [
     {
         id: 3,
         nombre: "Cargador USB-C 25W",
-        precio: 19.99,
         categoria: "cargadores",
         descripcion: "Cargador rápido compatible con múltiples dispositivos",
         imagen: "img/productos/Cargador_USBC_25W.jpeg"
@@ -27,7 +24,6 @@ const productos = [
     {
         id: 4,
         nombre: "Audífonos Bluetooth",
-        precio: 29.99,
         categoria: "audifonos",
         descripcion: "Audífonos inalámbricos con cancelación de ruido",
         imagen: "img/productos/Audífonos_Bluetooth.jpeg"
@@ -35,7 +31,6 @@ const productos = [
     {
         id: 5,
         nombre: "Soporte para Auto",
-        //precio: 12.99,
         categoria: "soportes",
         descripcion: "Soporte magnético para tablero o rejilla de ventilación",
         imagen: "img/productos/Soporte_para_Auto.jpeg"
@@ -43,7 +38,6 @@ const productos = [
     {
         id: 6,
         nombre: "Funda Antigolpes Xiaomi",
-        precio: 17.99,
         categoria: "fundas",
         descripcion: "Funda resistente con protección en esquinas",
         imagen: "img/productos/Funda_Antigolpes_Xiaomi.jpeg"
@@ -51,7 +45,6 @@ const productos = [
     {
         id: 7,
         nombre: "Cable USB-C 2m",
-        precio: 8.99,
         categoria: "cargadores",
         descripcion: "Cable de carga rápida reforzado con nylon",
         imagen: "img/productos/Cable_USBC_2m.jpeg"
@@ -59,7 +52,6 @@ const productos = [
     {
         id: 8,
         nombre: "Protector Cámara iPhone",
-        precio: 7.99,
         categoria: "protectores",
         descripcion: "Protector de cristal para lentes de cámara",
         imagen: "img/productos/Protector_Camara_iPhone.jpeg"
@@ -85,7 +77,6 @@ function cargarProductos(filtro = 'todos') {
             <div class="producto-info">
                 <div class="producto-categoria">${producto.categoria}</div>
                 <h3 class="producto-nombre">${producto.nombre}</h3>
-                <div class="producto-precio">$${producto.precio}</div>
                 <p class="producto-descripcion">${producto.descripcion}</p>
                 <button class="btn-comprar" data-id="${producto.id}">Añadir al carrito</button>
             </div>
