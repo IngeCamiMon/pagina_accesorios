@@ -1,23 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Orbitron:wght@400;700&family=Montserrat:wght@400;500;700&display=swap');
+
 /* Estilos generales */
 :root {
-    --color-primario: #4a6de5;
-    --color-secundario: #f8f9fa;
-    --color-acento: #060101;
-    --color-texto: #333;
-    --sombra: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --color-bg-dark: #1A1A2E; /* Fondo principal oscuro */
+    --color-text-light: #F0F0F0; /* Texto principal claro */
+    --color-accent-primary: #00FFFF; /* Cian vibrante */
+    --color-accent-secondary: #E040FB; /* Magenta/Púrpura neón */
+    --color-accent-primary-darker: #00D1D1; /* Cian más oscuro para hovers */
+    --color-accent-secondary-darker: #B832D9; /* Magenta más oscuro para hovers */
+
+    --font-primary: 'Orbitron', 'Exo 2', 'Montserrat', sans-serif; /* Para encabezados y elementos destacados */
+    --font-secondary: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Para cuerpo de texto */
+
+    --sombra-light: 0 5px 15px rgba(0, 255, 255, 0.1); /* Sombra cian sutil */
+    --sombra-dark: 0 5px 20px rgba(0, 0, 0, 0.3); /* Sombra más oscura para contraste */
+    --transition-speed: 0.3s;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #f5f5f5;
-    color: var(--color-texto);
-    line-height: 1.6;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    font-family: var(--font-secondary);
+    line-height: 1.7; /* Ligeramente más espaciado */
+    overflow-x: hidden; /* Prevenir scroll horizontal por animaciones */
 }
 
 .container {
@@ -28,29 +39,33 @@ body {
 
 /* Header */
 header {
-    background-color: white;
-    box-shadow: var(--sombra);
+    background-color: rgba(26, 26, 46, 0.85); /* Fondo oscuro semi-transparente para efecto "glassmorphism" */
+    backdrop-filter: blur(10px); /* Efecto blur para el fondo */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra más sutil */
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+    border-bottom: 1px solid var(--color-accent-primary-darker); /* Línea inferior de acento */
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 20px 0; /* Más padding vertical */
 }
 
 .logo {
-    font-size: 24px;
+    font-family: var(--font-primary); /* Fuente primaria para el logo */
+    font-size: 28px; /* Un poco más grande */
     font-weight: bold;
-    color: var(--color-primario);
+    color: var(--color-accent-primary); /* Color de acento primario */
     text-decoration: none;
+    text-shadow: 0 0 5px var(--color-accent-primary); /* Ligero brillo */
 }
 
 .logo span {
-    color: var(--color-acento);
+    color: var(--color-text-light); /* Color de texto claro para la segunda parte */
 }
 
 nav ul {
@@ -59,298 +74,437 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 30px; /* Más espaciado entre elementos */
 }
 
 nav ul li a {
+    font-family: var(--font-secondary);
     text-decoration: none;
-    color: var(--color-texto);
+    color: var(--color-text-light);
     font-weight: 500;
-    transition: color 0.3s;
+    font-size: 1.1rem;
+    transition: color var(--transition-speed), text-shadow var(--transition-speed);
+    position: relative;
+    padding-bottom: 5px;
 }
 
-nav ul li a:hover {
-    color: var(--color-primario);
+nav ul li a::after { /* Subrayado animado */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent-primary);
+    transition: width var(--transition-speed);
+}
+
+nav ul li a:hover, nav ul li a.activo { /* 'activo' podría ser una clase para la página actual */
+    color: var(--color-accent-primary);
+    text-shadow: 0 0 3px var(--color-accent-primary);
+}
+
+nav ul li a:hover::after, nav ul li a.activo::after {
+    width: 100%;
 }
 
 .menu-toggle {
     display: none;
-    font-size: 24px;
+    font-size: 28px; /* Más grande */
+    color: var(--color-accent-primary); /* Color de acento */
     cursor: pointer;
+    transition: transform var(--transition-speed);
+}
+.menu-toggle:hover {
+    transform: scale(1.1);
 }
 
 /* Hero Section con imagen de fondo */
 .hero {
-    background-image: url('../img/fondo_hero.jpg');
+    /* background-image: url('../img/fondo_hero.jpg'); Eliminamos la imagen estática por ahora, priorizando el video */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: white;
-    padding: 80px 0;
+    color: var(--color-text-light); /* Texto claro */
+    padding: 100px 0; /* Más padding */
     text-align: center;
-    position: relative;
+    position: relative; /* Necesario para el video y el overlay */
+    overflow: hidden; /* Para contener el video */
 }
 
-.hero::before {
+.background-video { /* Estilo para el video de fondo */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100; /* Detrás de todo el contenido */
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    transition: 1s opacity;
+}
+
+.hero::before { /* Overlay con gradiente futurista */
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.7) 0%, rgba(18, 18, 30, 0.8) 50%, rgba(26, 26, 46, 0.7) 100%),
+                radial-gradient(ellipse at center, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+    z-index: 1; /* Por encima del video pero debajo del contenido */
 }
 
 .hero .container {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Por encima del overlay */
 }
 
 .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: var(--font-primary);
+    font-size: 3.5rem; /* Más grande y audaz */
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px var(--color-accent-primary), 0 0 20px var(--color-accent-primary); /* Efecto de brillo más pronunciado */
+    letter-spacing: 2px; /* Espaciado entre letras */
 }
 
 .hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 30px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    font-size: 1.3rem; /* Ligeramente más grande */
+    max-width: 750px;
+    margin: 0 auto 35px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.7); /* Sombra de texto para legibilidad */
+    line-height: 1.8;
 }
 
-.btn {
+.btn { /* Estilo base para botones, lo reutilizaremos */
+    font-family: var(--font-primary);
     display: inline-block;
-    background-color: var(--color-acento);
-    color: white;
-    padding: 12px 25px;
-    border-radius: 5px;
+    background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-primary-darker));
+    color: var(--color-bg-dark); /* Texto oscuro para contraste con botón claro */
+    padding: 15px 35px; /* Más padding */
+    border-radius: 50px; /* Bordes más redondeados para un look moderno */
     text-decoration: none;
     font-weight: bold;
-    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background var(--transition-speed);
     position: relative;
     z-index: 2;
+    border: none; /* Quitar borde por defecto */
+    box-shadow: 0 0 10px var(--color-accent-primary), inset 0 0 5px rgba(255,255,255,0.3);
 }
 
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+.btn:hover, .btn:focus {
+    transform: translateY(-5px) scale(1.05); /* Efecto de elevación y escala */
+    box-shadow: 0 8px 25px rgba(0, 255, 255, 0.4), inset 0 0 10px rgba(255,255,255,0.5);
+    background: linear-gradient(135deg, var(--color-accent-primary-darker), var(--color-accent-primary));
+    outline: none; /* Quitar outline en focus */
 }
+
 
 /* Categorías / Filtros */
 .categorias {
-    padding: 40px 0;
-    background-color: var(--color-secundario);
+    padding: 60px 0; /* Más padding */
+    background-color: rgba(255, 255, 255, 0.03); /* Fondo muy sutil, casi transparente */
+    border-top: 1px solid var(--color-accent-primary-darker);
+    background-color: rgba(255, 255, 255, 0.03); /* Fondo muy sutil, casi transparente */
+    border-top: 1px solid var(--color-accent-primary-darker);
+    border-bottom: 1px solid var(--color-accent-primary-darker);
 }
 
 .categorias h2 {
+    font-family: var(--font-primary);
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 35px; /* Más margen */
+    font-size: 2.5rem;
+    color: var(--color-accent-primary);
+    text-shadow: 0 0 8px var(--color-accent-primary);
 }
 
 .filtros {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 15px; /* Más espacio */
+    margin-bottom: 30px;
 }
 
 .filtro-btn {
-    padding: 8px 16px;
-    background-color: white;
-    border: 2px solid var(--color-primario);
+    font-family: var(--font-secondary);
+    padding: 10px 25px; /* Más padding */
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid var(--color-accent-secondary); /* Borde con acento secundario */
+    color: var(--color-accent-secondary); /* Texto con acento secundario */
     border-radius: 30px;
     cursor: pointer;
     font-weight: 500;
-    transition: all 0.3s;
+    transition: all var(--transition-speed);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .filtro-btn:hover, .filtro-btn.activo {
-    background-color: var(--color-primario);
-    color: white;
+    background-color: var(--color-accent-secondary);
+    color: var(--color-bg-dark); /* Texto oscuro para contraste */
+    box-shadow: 0 0 15px var(--color-accent-secondary);
+    transform: scale(1.05);
 }
 
 /* Productos */
 .productos {
-    padding: 60px 0;
+    padding: 80px 0; /* Más padding */
 }
 
 .productos h2 {
+    font-family: var(--font-primary);
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px; /* Más margen */
+    font-size: 2.8rem;
+    color: var(--color-text-light);
 }
 
 .productos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Columnas un poco más anchas */
+    gap: 40px; /* Más espacio */
 }
 
 .producto {
-    background-color: white;
-    border-radius: 8px;
+    background-color: rgba(40, 40, 70, 0.5); /* Fondo de tarjeta semi-transparente */
+    border-radius: 10px; /* Bordes más redondeados */
     overflow: hidden;
-    box-shadow: var(--sombra);
-    transition: transform 0.3s;
+    box-shadow: var(--sombra-dark);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    border: 1px solid var(--color-accent-primary-darker); /* Borde sutil */
+    display: flex;
+    flex-direction: column; /* Para alinear el botón al final */
 }
 
 .producto:hover {
-    transform: translateY(-10px);
+    transform: translateY(-12px) scale(1.02); /* Efecto de elevación y ligera escala */
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2), 0 0 15px var(--color-accent-primary);
 }
 
 .producto-img {
-    height: 200px;
+    height: 220px; /* Un poco más alta */
     width: 100%;
     object-fit: cover;
+    transition: transform var(--transition-speed);
+}
+
+.producto:hover .producto-img {
+    transform: scale(1.05); /* Ligero zoom a la imagen en hover */
 }
 
 .producto-info {
-    padding: 20px;
+    padding: 25px; /* Más padding interno */
+    flex-grow: 1; /* Para que el contenido empuje el botón hacia abajo */
+    display: flex;
+    flex-direction: column;
 }
 
 .producto-categoria {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    color: #777;
-    margin-bottom: 5px;
+    color: var(--color-accent-secondary); /* Usar acento secundario */
+    margin-bottom: 8px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
 .producto-nombre {
-    font-size: 1.2rem;
+    font-family: var(--font-primary);
+    font-size: 1.4rem; /* Más grande */
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    color: var(--color-text-light);
+    flex-grow: 1; /* Para que ocupe espacio y empuje descripción/botón */
 }
 
-.producto-precio {
-    color: var(--color-primario);
+.producto-precio { /* Este estilo no estaba en el HTML original, pero es común */
+    color: var(--color-accent-primary);
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
 .producto-descripcion {
-    color: #555;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
+    color: var(--color-text-light);
+    opacity: 0.8; /* Ligeramente transparente */
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1; /* Para que ocupe espacio y empuje el botón */
 }
 
-.btn-comprar {
+.btn-comprar { /* Reutilizamos y adaptamos el estilo .btn */
     width: 100%;
     text-align: center;
-    padding: 10px 0;
-    background-color: var(--color-primario);
-    color: white;
+    padding: 12px 0; /* Ajustar padding */
+    background: linear-gradient(135deg, var(--color-accent-secondary), var(--color-accent-secondary-darker));
+    color: var(--color-text-light);
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; /* Un poco menos redondeado que el .btn principal */
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s;
+    font-family: var(--font-primary);
+    transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+    margin-top: auto; /* Asegura que el botón esté al final de la tarjeta */
+    box-shadow: 0 0 8px var(--color-accent-secondary);
 }
 
-.btn-comprar:hover {
-    background-color: #3857c9;
+.btn-comprar:hover, .btn-comprar:focus {
+    background: linear-gradient(135deg, var(--color-accent-secondary-darker), var(--color-accent-secondary));
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(224, 64, 251, 0.4);
+    outline: none;
 }
 
 /* Sobre Nosotros */
 .sobre-nosotros {
-    padding: 60px 0;
-    background-color: var(--color-secundario);
+    padding: 80px 0;
+    background-color: rgba(255, 255, 255, 0.02); /* Fondo aún más sutil */
+    border-top: 1px solid var(--color-accent-secondary-darker);
 }
 
 .sobre-nosotros-flex {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 50px; /* Más espacio */
 }
 
 .sobre-nosotros-imagen {
     flex: 1;
-    border-radius: 10px;
+    border-radius: 15px; /* Bordes más redondeados */
     overflow: hidden;
+    box-shadow: 0 0 25px var(--color-accent-secondary-darker); /* Sombra de acento */
+    border: 1px solid var(--color-accent-secondary);
 }
 
 .sobre-nosotros-imagen img {
     width: 100%;
     display: block;
+    transition: transform var(--transition-speed);
+}
+.sobre-nosotros-imagen:hover img {
+    transform: scale(1.05);
 }
 
 .sobre-nosotros-texto {
-    flex: 1;
+    flex: 1.2; /* Dar un poco más de espacio al texto */
 }
 
 .sobre-nosotros-texto h2 {
-    margin-bottom: 20px;
+    font-family: var(--font-primary);
+    font-size: 2.6rem;
+    margin-bottom: 25px;
+    color: var(--color-text-light);
+    text-shadow: 0 0 5px rgba(255,255,255,0.2);
 }
 
 .sobre-nosotros-texto p {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+    opacity: 0.9;
 }
 
 /* Testimonios */
 .testimonios {
-    padding: 60px 0;
+    padding: 80px 0;
     text-align: center;
+    background: linear-gradient(rgba(26, 26, 46, 0.92), rgba(26, 26, 46, 0.92)), url('../img/fondo_hero.jpg') center center/cover no-repeat fixed;
+    /* Reutilizamos fondo_hero.jpg con un overlay oscuro y efecto parallax (fixed) */
+    border-top: 1px solid var(--color-accent-primary-darker);
 }
 
 .testimonios h2 {
-    margin-bottom: 40px;
+    font-family: var(--font-primary);
+    margin-bottom: 50px;
+    font-size: 2.8rem;
+    color: var(--color-accent-primary);
+    text-shadow: 0 0 8px var(--color-accent-primary);
 }
 
 .testimonios-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Tarjetas un poco más anchas */
+    gap: 40px;
 }
 
 .testimonio {
-    background-color: white;
-    padding: 30px;
+    background-color: rgba(40, 40, 70, 0.65); /* Fondo semi-transparente */
+    backdrop-filter: blur(8px);
+    padding: 35px;
     border-radius: 10px;
-    box-shadow: var(--sombra);
+    box-shadow: var(--sombra-light);
+    border: 1px solid var(--color-accent-secondary);
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
-.testimonio-img {
-    width: 80px;
-    height: 80px;
+.testimonio:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 8px 25px var(--color-accent-secondary);
+}
+
+.testimonio-img { /* Este elemento no está en el HTML actual, pero si se añade, así se vería */
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 15px;
-    border: 2px solid var(--color-primario);
+    margin-bottom: 20px;
+    border: 3px solid var(--color-accent-primary);
+    box-shadow: 0 0 10px var(--color-accent-primary);
 }
 
 .testimonio p {
     font-style: italic;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-light);
+    opacity: 0.95;
 }
 
 .cliente {
     font-weight: bold;
+    color: var(--color-accent-primary);
+    font-family: var(--font-secondary);
+    font-size: 1.1rem;
 }
 
-/* Video Publicitario */
+/* Video Publicitario - Esta sección no está en index.html, pero si existiera, así se podría estilizar */
 .video-publicitario {
-    padding: 60px 0;
-    background-color: var(--color-secundario);
+    padding: 80px 0;
+    background-color: var(--color-bg-dark); /* Mantener fondo oscuro */
     text-align: center;
+    border-top: 1px solid var(--color-accent-primary-darker);
 }
 
 .video-publicitario h2 {
-    margin-bottom: 20px;
+    font-family: var(--font-primary);
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: var(--color-text-light);
 }
 
 .video-container {
     position: relative;
-    padding-bottom: 56.25%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     height: 0;
     overflow: hidden;
-    border-radius: 10px;
-    max-width: 100%;
-    box-shadow: var(--sombra);
+    border-radius: 15px;
+    max-width: 900px; /* Limitar ancho máximo */
+    margin: 0 auto; /* Centrar */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 2px solid var(--color-accent-primary);
 }
 
 .video-container iframe {
@@ -363,155 +517,280 @@ nav ul li a:hover {
 
 /* Contacto */
 .contacto {
-    padding: 60px 0;
-    background-color: var(--color-secundario);
+    padding: 80px 0;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid var(--color-accent-secondary-darker);
 }
 
 .contacto h2 {
+    font-family: var(--font-primary);
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    font-size: 2.8rem;
+    color: var(--color-text-light);
 }
 
 .contacto-flex {
     display: flex;
-    gap: 40px;
+    gap: 50px;
 }
 
 .contacto-info {
     flex: 1;
+    background-color: rgba(40, 40, 70, 0.45);
+    padding: 35px; /* Más padding */
+    border-radius: 10px;
+    border: 1px solid var(--color-accent-primary);
+    box-shadow: 0 0 15px var(--color-accent-primary-darker);
 }
 
 .contacto-info h3 {
-    margin-bottom: 15px;
+    font-family: var(--font-primary);
+    margin-bottom: 20px;
+    color: var(--color-accent-primary);
+    font-size: 1.6rem; /* Un poco más grande */
 }
 
 .contacto-info p {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.7;
 }
 
-.contacto-info i {
-    margin-right: 10px;
-    color: var(--color-primario);
+.contacto-info i { /* Iconos */
+    margin-right: 12px;
+    color: var(--color-accent-secondary); /* Usar acento secundario para iconos */
+    font-size: 1.2em;
+    vertical-align: middle;
+    transition: transform var(--transition-speed);
 }
+.contacto-info p:hover i {
+    transform: scale(1.2);
+}
+
 
 .whatsapp-link {
-    color: var(--color-texto);
+    color: var(--color-text-light);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color var(--transition-speed), text-shadow var(--transition-speed);
 }
 
 .whatsapp-link:hover {
-    color: #25D366;
+    color: #25D366; /* Color específico de WhatsApp */
+    text-shadow: 0 0 8px #25D366;
 }
 
 .contacto-info a {
-    color: var(--color-texto);
+    color: var(--color-text-light);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color var(--transition-speed), text-shadow var(--transition-speed);
 }
 
 .contacto-info a:hover {
-    color: var(--color-primario);
+    color: var(--color-accent-primary);
+    text-shadow: 0 0 8px var(--color-accent-primary);
 }
 
 .contacto-mapa {
-    flex: 1;
+    flex: 1.2; /* Darle un poco más de espacio al mapa */
     border-radius: 10px;
     overflow: hidden;
+    border: 2px solid var(--color-accent-primary);
+    box-shadow: 0 0 25px var(--color-accent-primary); /* Brillo más intenso */
 }
 
 .contacto-mapa img {
     width: 100%;
-    height: 300px;
+    height: 100%;
+    min-height: 400px; /* Altura mínima aumentada */
     object-fit: cover;
+    opacity: 0.75; /* Mapa un poco más sutil */
+    transition: opacity var(--transition-speed), transform var(--transition-speed);
+}
+.contacto-mapa:hover img {
+    opacity: 1;
+    transform: scale(1.03);
 }
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: white;
-    padding: 40px 0 20px;
+    background-color: var(--color-bg-dark);
+    border-top: 2px solid var(--color-accent-primary);
+    color: var(--color-text-light);
+    padding: 50px 0 25px;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    margin-bottom: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 35px;
+    margin-bottom: 35px;
 }
 
 .footer-columna h3 {
-    margin-bottom: 20px;
-    font-size: 1.2rem;
+    font-family: var(--font-primary);
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+    color: var(--color-accent-primary);
 }
 
 .footer-columna ul {
     list-style: none;
+    padding-left: 0; /* Asegurar que no haya padding por defecto */
 }
 
 .footer-columna ul li {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .footer-columna ul li a {
-    color: #ddd;
+    color: var(--color-text-light);
+    opacity: 0.8;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color var(--transition-speed), opacity var(--transition-speed), padding-left var(--transition-speed), text-shadow var(--transition-speed);
 }
 
 .footer-columna ul li a:hover {
-    color: white;
+    color: var(--color-accent-primary);
+    opacity: 1;
+    padding-left: 8px; /* Ligero desplazamiento al hacer hover */
+    text-shadow: 0 0 5px var(--color-accent-primary);
 }
 
 .copyright {
     text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid #444;
-    font-size: 0.9rem;
+    padding-top: 25px;
+    border-top: 1px solid var(--color-accent-primary-darker);
+    font-size: 1rem;
+    color: var(--color-text-light);
+    opacity: 0.7;
+    letter-spacing: 0.5px;
 }
 
 /* Responsive */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    .hero p {
+        font-size: 1.15rem;
+    }
+    .productos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+     .sobre-nosotros-texto h2, .contacto-info h3 {
+        font-size: 2.2rem;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
+        padding: 15px 20px; /* Añadir padding horizontal para el logo y toggle */
+        /* flex-direction: row; Mantener en fila para logo y toggle */
+        /* align-items: center; Alinear logo y toggle */
     }
-
-    nav {
+    .logo {
+        font-size: 22px; /* Reducir un poco el logo */
+    }
+    header nav { /* Seleccionar nav dentro de header */
         width: 100%;
+        background-color: rgba(20, 20, 35, 0.98);
+        backdrop-filter: blur(8px);
+        position: absolute;
+        top: 100%;
+        left: 0;
         display: none;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--color-accent-primary);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
-    nav.activo {
+    header nav.activo {
         display: block;
     }
 
-    nav ul {
+    header nav ul {
         flex-direction: column;
         width: 100%;
-        margin-top: 15px;
+        margin-top: 0;
     }
 
-    nav ul li {
+    header nav ul li {
         margin: 0;
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
+        text-align: center;
+    }
+    header nav ul li a {
+        display: block;
+        padding: 18px 0; /* Aumentar padding para mejor toque */
+        border-bottom: 1px solid var(--color-accent-primary-darker);
+        font-size: 1.2rem; /* Ligeramente más grande para móvil */
+    }
+    header nav ul li:last-child a {
+        border-bottom: none;
+    }
+    header nav ul li a::after {
+        display: none;
     }
 
     .menu-toggle {
         display: block;
-        position: absolute;
-        right: 20px;
-        top: 15px;
+        /* position: absolute; Ya no es necesario si nav-container es flex row */
+        /* right: 20px; */
+        /* top: 50%; */
+        /* transform: translateY(-50%); */
+        font-size: 26px; /* Ajustar tamaño */
     }
 
     .sobre-nosotros-flex,
     .contacto-flex {
         flex-direction: column;
+        gap: 35px;
     }
+    .sobre-nosotros-imagen, .contacto-mapa {
+        margin-bottom: 25px;
+    }
+    .contacto-mapa img {
+        min-height: 300px; /* Reducir altura mínima del mapa en móvil */
+    }
+
 
     .hero h1 {
         font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+    .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+
+    .categorias h2, .productos h2, .testimonios h2, .contacto h2 {
+        font-size: 2.2rem;
+    }
+    .sobre-nosotros-texto h2 {
+        font-size: 2rem;
+    }
+     .contacto-info h3 {
+        font-size: 1.4rem;
+    }
+
+
+    .productos-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .testimonios-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-columna ul {
+        padding-left: 0;
     }
 }
