@@ -5,7 +5,7 @@ const productos = [
         nombre: "Funda Silicona iPhone 14",
         categoria: "fundas",
         descripcion: "Funda de silicona suave con interior de microfibra",
-        imagen: "img/productos/Funda_Silicona_iPhone_14jpeg"
+        imagen: "img/productos/Funda_Silicona_iPhone_14.jpeg"
     },
     {
         id: 2,
@@ -82,28 +82,28 @@ const productos = [
         nombre: "Funda iPhone 14",
         categoria: "fundas",
         descripcion: "Funda de silicona suave con interior de microfibra",
-        imagen: "img/productos/funda_iphone_14.jpg"
+        imagen: "img/productos/Funda_Silicona_iPhone_14.jpeg" // Corregido: Usar imagen existente
     },
     {
         id: 13,
-        nombre: "Funda iPhone 15",
+        nombre: "Funda iPhone Transparente", // Corregido: Nombre más descriptivo
         categoria: "fundas",
-        descripcion: "Funda de silicona suave con interior de microfibra",
-        imagen: "img/productos/Funda_Silicona_iPhone.jpg"
+        descripcion: "Funda transparente para iPhone con protección anti-amarilleo",
+        imagen: "img/productos/funda_iphone_transparente.jpg" // Corregido: Usar imagen existente
     },
     {
         id: 14,
-        nombre: "Funda iPhone 16",
+        nombre: "Funda iPhone Diseño", // Corregido: Nombre más descriptivo
         categoria: "fundas",
-        descripcion: "Funda de silicona suave con interior de microfibra",
-        imagen: "img/productos/funda_iphone2.jpg"
+        descripcion: "Funda de silicona suave con interior de microfibra y diseño",
+        imagen: "img/productos/funda_iphone2.jpg" // Ya existe y es diferente a funda_iphone.jpg
     },
     {
         id: 15,
-        nombre: "Funda iPhone 16",
+        nombre: "Funda iPhone Colores", // Corregido: Nombre más descriptivo
         categoria: "fundas",
-        descripcion: "Funda de silicona suave con interior de microfibra",
-        imagen: "img/productos/funda_iphone.jpg"
+        descripcion: "Funda de silicona suave con interior de microfibra en varios colores",
+        imagen: "img/productos/funda_iphone.jpg" // Ya existe y es diferente a funda_iphone2.jpg
     },
     {
         id: 16,
@@ -124,7 +124,7 @@ const productos = [
         nombre: "Audifonos Inalambricos",
         categoria: "audifonos",
         descripcion: "Audífonos inalámbricos con cancelación de ruido",
-        imagen: "img/productos/Audífonos_Bluetooth.jpg"
+        imagen: "img/productos/Audífonos_Bluetooth.jpeg" // Corregido: extensión .jpeg
     },
     {
         id: 19,
