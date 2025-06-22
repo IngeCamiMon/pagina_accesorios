@@ -146,7 +146,79 @@ const productos = [
         categoria: "cargadores",
         descripcion: "Batería externa para iPhone con carga rápida",   
         imagen: "img/productos/batria_iphon_portatil.jpg"
-    }
+    },
+    // ...existing code...
+{
+    id: 22,
+    nombre: "Accesorio Celular",
+    categoria: "accesorios",
+    descripcion: "Accesorio para celular de alta calidad.",
+    imagen: "img/productos/accesorio_celular.jpg"
+},
+{
+    id: 23,
+    nombre: "Adaptador 35W",
+    categoria: "cargadores",
+    descripcion: "Adaptador de carga rápida 35W.",
+    imagen: "img/productos/adaptador_35w.jpg"
+},
+{
+    id: 24,
+    nombre: "Adaptador Samsung",
+    categoria: "cargadores",
+    descripcion: "Adaptador original para Samsung.",
+    imagen: "img/productos/adaptador_samsung.jpg"
+},
+{
+    id: 25,
+    nombre: "Airpods iPhone",
+    categoria: "audifonos",
+    descripcion: "Airpods compatibles con iPhone.",
+    imagen: "img/productos/airpods_iphone.jpg"
+},
+{
+    id: 26,
+    nombre: "Alexa Voz",
+    categoria: "accesorios",
+    descripcion: "Asistente inteligente Alexa por voz.",
+    imagen: "img/productos/alexa_voz.jpg"
+},
+{
+    id: 27,
+    nombre: "Armadura 2",
+    categoria: "fundas",
+    descripcion: "Funda tipo armadura versión 2.",
+    imagen: "img/productos/armadura_2.jpg"
+},
+{
+    id: 28,
+    nombre: "Armadura Samsung",
+    categoria: "fundas",
+    descripcion: "Funda armadura para Samsung.",
+    imagen: "img/productos/armadura_samsung.jpg"
+},
+{
+    id: 29,
+    nombre: "Audífonos Redmi",
+    categoria: "audifonos",
+    descripcion: "Audífonos inalámbricos Redmi.",
+    imagen: "img/productos/audifonos_redmi.jpg"
+},
+{
+    id: 30,
+    nombre: "Audífonos Xiaomi",
+    categoria: "audifonos",
+    descripcion: "Audífonos inalámbricos Xiaomi.",
+    imagen: "img/productos/audifonos_xiami.jpg"
+},
+{
+    id: 31,
+    nombre: "Bafle",
+    categoria: "accesorios",
+    descripcion: "Bafle portátil bluetooth.",
+    imagen: "img/productos/bafle.jpg"
+}
+// ...existing code...
 
 ];
 
