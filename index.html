@@ -3,132 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnology J.C - Tu tienda de accesorios para celulares</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <meta name="description" content="Tecnology JC: accesorios premium para celular, fundas, protectores, cargadores, audífonos y más.">
+    <title>Tecnology JC | Accesorios para celular</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Encabezado -->
-    <header>
+    <header class="site-header">
         <div class="container nav-container">
-            <a href="#" class="logo">Tecnology<span> JC</span></a>
-            <div class="menu-toggle">☰</div>
-            <nav>
+            <a href="#inicio" class="logo" aria-label="Inicio Tecnology JC">Tecnology<span>JC</span></a>
+            <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+            <nav class="main-nav" aria-label="Navegación principal">
                 <ul>
-                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#inicio" class="active">Inicio</a></li>
                     <li><a href="#productos">Productos</a></li>
                     <li><a href="#sobre-nosotros">Nosotros</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
+            <button class="cart-toggle" type="button" aria-label="Abrir carrito" aria-expanded="false">
+                🛒 <span class="cart-count" aria-live="polite">0</span>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-<section class="hero" id="inicio">
-    <video autoplay muted loop playsinline class="background-video">
-        <source src="/img/fondo_hero.mp4" type="video/mp4">
-        Tu navegador no soporta el video.
-    </video>
-    <div class="container contenido">
-        <h1>Los mejores accesorios para tu celular</h1>
-        <p>Encuentra fundas, protectores de pantalla, cargadores y mucho más para mantener tu dispositivo protegido y a la moda.</p>
-        <a href="#productos" class="btn">Ver Productos</a>
-    </div>
-</section>
+    <main>
+        <section class="hero" id="inicio">
+            <video autoplay muted loop playsinline class="background-video" poster="img/fondo_hero.jpg">
+                <source src="img/fondo_hero.mp4" type="video/mp4">
+            </video>
+            <div class="container hero-content">
+                <div class="hero-copy">
+                    <span class="eyebrow">Tech essentials para tu día a día</span>
+                    <h1>Protección, estilo y tecnología en cada detalle.</h1>
+                    <p>Descubre fundas, protectores, cargadores, audífonos y accesorios premium para tu celular con calidad confiable y atención personalizada.</p>
+                    <div class="hero-actions">
+                        <a href="#productos" class="btn btn-primary">Ver catálogo</a>
+                        <a href="https://wa.me/573102774974" target="_blank" rel="noopener" class="btn btn-secondary">Cotizar por WhatsApp</a>
+                    </div>
+                    <ul class="hero-stats" aria-label="Estadísticas de la tienda">
+                        <li><strong>+15 años</strong><span>de experiencia</span></li>
+                        <li><strong>4.9/5</strong><span>calificación</span></li>
+                        <li><strong>+1.200</strong><span>clientes felices</span></li>
+                    </ul>
+                </div>
 
-
-    <!-- Categorías / Filtros -->
-    <section class="categorias">
-        <div class="container">
-            <h2>Categorías</h2>
-            <div class="filtros">
-                <button class="filtro-btn activo" data-filtro="todos">Todos</button>
-                <button class="filtro-btn" data-filtro="fundas">Fundas</button>
-                <button class="filtro-btn" data-filtro="protectores">Protectores</button>
-                <button class="filtro-btn" data-filtro="cargadores">Cargadores</button>
-                <button class="filtro-btn" data-filtro="audifonos">Audífonos</button>
-                <button class="filtro-btn" data-filtro="soportes">Soportes</button>
+                <div class="hero-visual" aria-label="Productos destacados">
+                    <div class="showcase-card main-card">
+                        <div class="card-badge">Top seller</div>
+                        <img src="img/productos/Funda_Silicona_iPhone_14.jpeg" alt="Funda para iPhone 14">
+                        <div class="card-info">
+                            <span>Funda premium</span>
+                            <strong>iPhone 14</strong>
+                            <small>Protección total</small>
+                        </div>
+                    </div>
+                    <div class="floating-pill pill-one">Entrega rápida</div>
+                    <div class="floating-pill pill-two">Garantía</div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Productos -->
-    <section class="productos" id="productos">
-        <div class="container">
-            <h2>Nuestros Productos</h2>
-            <div class="productos-grid" id="productos-container">
-                <!-- Los productos se cargarán dinámicamente con JavaScript -->
+        <section class="benefits">
+            <div class="container benefits-grid">
+                <article class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Carga rápida</h3>
+                    <p>Adaptadores y accesorios con performance confiable para cada dispositivo.</p>
+                </article>
+                <article class="benefit-item">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3>Protección real</h3>
+                    <p>Materiales resistentes que cuidan tu equipo al máximo sin sacrificar estilo.</p>
+                </article>
+                <article class="benefit-item">
+                    <div class="benefit-icon">🎧</div>
+                    <h3>Experiencia sonora</h3>
+                    <p>Audio más limpio, cómodo y moderno para tus sesiones diarias.</p>
+                </article>
+                <article class="benefit-item">
+                    <div class="benefit-icon">🚚</div>
+                    <h3>Atención cercana</h3>
+                    <p>Asesoría personalizada y entrega ágil para que compres sin complicaciones.</p>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Sobre Nosotros -->
-    <section class="sobre-nosotros" id="sobre-nosotros">
-        <div class="container">
-            <div class="sobre-nosotros-flex">
+        <section class="categorias">
+            <div class="container">
+                <div class="section-header">
+                    <span class="kicker">Categorías</span>
+                    <h2>Encuentra lo que necesitas</h2>
+                </div>
+                <div class="filtros" aria-label="Filtros de productos">
+                    <button class="filtro-btn activo" data-filtro="todos">Todos</button>
+                    <button class="filtro-btn" data-filtro="fundas">Fundas</button>
+                    <button class="filtro-btn" data-filtro="protectores">Protectores</button>
+                    <button class="filtro-btn" data-filtro="cargadores">Cargadores</button>
+                    <button class="filtro-btn" data-filtro="audifonos">Audífonos</button>
+                    <button class="filtro-btn" data-filtro="soportes">Soportes</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="productos" id="productos">
+            <div class="container">
+                <div class="section-header align-left">
+                    <span class="kicker">Catálogo</span>
+                    <h2>Productos destacados</h2>
+                </div>
+                <div class="productos-grid" id="productos-container" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="sobre-nosotros" id="sobre-nosotros">
+            <div class="container sobre-nosotros-flex">
                 <div class="sobre-nosotros-imagen">
-                    <img src="/img/tienda_sobre-nosotros.jpg" alt="Nuestra tienda">
+                    <img src="img/tienda_sobre-nosotros.jpg" alt="Tienda Technology JC">
                 </div>
                 <div class="sobre-nosotros-texto">
-                    <h2>Sobre Nosotros</h2>
-                    <p>En Tecnology JC nos dedicamos a ofrecer los mejores productos para mantener tu celular protegido, funcional y a la moda.</p>
-                    <p>Con más de 15 años de experiencia en el mercado, nos hemos convertido en el lugar preferido para quienes buscan accesorios de calidad a precios accesibles.</p>
-                    <p>Todos nuestros productos cuentan con garantía y ofrecemos asesoramiento personalizado para que encuentres exactamente lo que necesitas.</p>
+                    <span class="kicker">Nosotros</span>
+                    <h2>Más que una tienda: tu aliado tecnológico.</h2>
+                    <p>En Tecnology JC combinamos calidad, diseño y asesoría para ayudarte a encontrar accesorios que acompañen tu estilo y la rutina de tu celular.</p>
+                    <p>Trabajamos con marcas confiables y productos pensados para ofrecer seguridad, durabilidad y una experiencia premium en cada compra.</p>
+                    <ul class="feature-list">
+                        <li>Productos seleccionados por calidad y funcionalidad.</li>
+                        <li>Recomendación personalizada según tu dispositivo.</li>
+                        <li>Garantía y atención cercana en cada compra.</li>
+                    </ul>
                 </div>
             </div>
+        </section>
+
+        <section class="testimonios">
+            <div class="container">
+                <div class="section-header">
+                    <span class="kicker">Reseñas</span>
+                    <h2>Lo que dicen nuestros clientes</h2>
+                </div>
+                <div class="testimonios-grid">
+                    <article class="testimonio">
+                        <p>"Compré una funda para mi iPhone y quedé encantada con la calidad. Además, la atención fue excelente y muy cercana."</p>
+                        <div class="cliente"><strong>María G.</strong><span>Cliente frecuente</span></div>
+                    </article>
+                    <article class="testimonio">
+                        <p>"Tienen una gran variedad de productos y el servicio es muy ágil. Siempre encuentro exactamente lo que necesito."</p>
+                        <div class="cliente"><strong>Carlos P.</strong><span>Comprador digital</span></div>
+                    </article>
+                    <article class="testimonio">
+                        <p>"El cargador que compré funciona perfectamente y a un precio muy competitivo. Sin duda volveré a comprar."</p>
+                        <div class="cliente"><strong>Laura M.</strong><span>Amante de la tecnología</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="cta-banner">
+        <div class="container cta-content">
+            <div>
+                <span class="kicker">¿Listo para mejorar tu setup?</span>
+                <h2>Consulta hoy mismo tus accesorios favoritos.</h2>
+            </div>
+            <a href="https://wa.me/573102774974" target="_blank" rel="noopener" class="btn btn-primary">Chatear por WhatsApp</a>
         </div>
     </section>
 
-    <!-- Testimonios -->
-    <section class="testimonios">
-        <div class="container">
-            <h2>Lo que dicen nuestros clientes</h2>
-            <div class="testimonios-grid">
-                <div class="testimonio">
-                    <p>"Compré una funda para mi iPhone y quedé encantada con la calidad. Además, la atención fue excelente."</p>
-                    <div class="cliente">María G.</div>
-                </div>
-                <div class="testimonio">
-                    <p>"Tienen los mejores precios de la ciudad y una gran variedad de productos. Siempre encuentro lo que busco."</p>
-                    <div class="cliente">Carlos P.</div>
-                </div>
-                <div class="testimonio">
-                    <p>"El cargador inalámbrico que compré funciona perfectamente y a un precio muy accesible. Volveré por más productos."</p>
-                    <div class="cliente">Laura M.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto -->
     <section class="contacto" id="contacto">
         <div class="container">
-            <h2>Contáctanos</h2>
+            <div class="section-header align-left">
+                <span class="kicker">Contacto</span>
+                <h2>Hablemos</h2>
+            </div>
             <div class="contacto-flex">
                 <div class="contacto-info">
                     <h3>Información de contacto</h3>
-                    <p><i>📍</i> <a href="https://maps.google.com/?q=Cl. 163a #8g-11, Usaquén, Bogotá, Cundinamarca" target="_blank">Cl. 163a #8g-11, Usaquén, Bogotá, Cundinamarca</a></p>
-                    <p></p>
-                    <p><i>💬</i> <a href="https://wa.me/573102774974" class="whatsapp-link" target="_blank">Contáctanos por WhatsApp</a></p>
-                    <p><i>✉️</i> <a href="mailto:tecnologyjc@gmail.com">tecnologyjc@gmail.com</a></p>
+                    <p><span>📍</span><a href="https://maps.google.com/?q=Cl. 163a #8g-11, Usaquén, Bogotá, Cundinamarca" target="_blank" rel="noopener">Cl. 163a #8g-11, Usaquén, Bogotá, Cundinamarca</a></p>
+                    <p><span>💬</span><a href="https://wa.me/573102774974" class="whatsapp-link" target="_blank" rel="noopener">Contáctanos por WhatsApp</a></p>
+                    <p><span>✉️</span><a href="mailto:tecnologyjc@gmail.com">tecnologyjc@gmail.com</a></p>
                     <h3>Horario</h3>
-                    <p>Lunes a Viernes: 9:00 - 20:00</p>
-                    <p>Sábados y Domingos: 10:00 - 20:00</p>
+                    <p>Lunes a viernes: 9:00 a.m. - 8:00 p.m.</p>
+                    <p>Sábados y domingos: 10:00 a.m. - 8:00 p.m.</p>
                 </div>
                 <div class="contacto-mapa">
-                    <img src="img/mapa.jpg" alt="Mapa de ubicación">
+                    <img src="img/mapa.jpg" alt="Mapa de ubicación de la tienda">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <aside class="cart-drawer" aria-hidden="true" aria-labelledby="cart-title">
+        <div class="cart-header">
+            <div>
+                <span class="kicker">Tu selección</span>
+                <h2 id="cart-title">Carrito</h2>
+            </div>
+            <button class="cart-close" type="button" aria-label="Cerrar carrito">×</button>
+        </div>
+        <div class="cart-items" aria-live="polite"></div>
+        <div class="cart-footer">
+            <div class="cart-total"><span>Total estimado</span><strong>$0</strong></div>
+            <button class="btn btn-primary whatsapp-checkout" type="button">Finalizar por WhatsApp</button>
+            <button class="cart-clear" type="button">Vaciar carrito</button>
+        </div>
+    </aside>
+    <div class="cart-overlay" tabindex="-1"></div>
+
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-columna">
                     <h3>Tecnology JC</h3>
-                    <p>Tu tienda de confianza para accesorios de celulares de alta calidad.</p>
+                    <p>Tu tienda de confianza para accesorios premium para celular.</p>
                 </div>
                 <div class="footer-columna">
                     <h3>Enlaces rápidos</h3>
@@ -142,24 +230,22 @@
                 <div class="footer-columna">
                     <h3>Categorías</h3>
                     <ul>
-                        <li><a href="#">Fundas</a></li>
-                        <li><a href="#">Protectores</a></li>
-                        <li><a href="#">Cargadores</a></li>
-                        <li><a href="#">Audífonos</a></li>
+                        <li><a href="#productos">Fundas</a></li>
+                        <li><a href="#productos">Protectores</a></li>
+                        <li><a href="#productos">Cargadores</a></li>
+                        <li><a href="#productos">Audífonos</a></li>
                     </ul>
                 </div>
                 <div class="footer-columna">
                     <h3>Síguenos</h3>
                     <ul>
-                        <li><a href="https://www.facebook.com/profile.php?id=100062954483802&locale=es_LA">Facebook</a></li>
-                        <li><a href="https://www.instagram.com/tecnology.jc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram</a></li>
-                        <li><a href="#">Twitter</a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=100062954483802&locale=es_LA" target="_blank" rel="noopener">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/tecnology.jc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">Instagram</a></li>
+                        <li><a href="https://wa.me/573102774974" target="_blank" rel="noopener">WhatsApp</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
-                &copy; 2025 Tecnologyjc. Todos los derechos reservados.
-            </div>
+            <div class="copyright">&copy; 2025 Technology JC. Todos los derechos reservados.</div>
         </div>
     </footer>
 
